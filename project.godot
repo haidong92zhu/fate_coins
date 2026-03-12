@@ -1,0 +1,51 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Fate Coins"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArrayNames,HighRes
+config/icon="res://icon.png"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+window/size/resizable=false
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
+
+[dotnet]
+
+project/assembly_name="FateCoins"
+
+[filesystem]
+
+project/overwrite_on_import=true
+
+[input]
+
+ui/default_cancel_action_exit=true
+
+[ui]
+
+accept/yes_prompt=Are you sure you want to exit?
+mouse/default_cursor_shape="arrow"
+
+[physics]
+
+2d/default_gravity=0,0
+2d/default_linear_velocity=1500,0

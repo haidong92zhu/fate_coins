@@ -1,0 +1,112 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck9z5j0k7b2c"]
+
+[node name="Shop" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 2
+anchors_preset = 8
+offset_left = 500.0
+offset_top = 30.0
+offset_right = -500.0
+offset_bottom = -670.0
+text = "SHOP"
+custom_colors/font_color = Color( 1, 0.8, 0.4, 1 )
+custom_colors/font_outline_color = Color( 0, 0, 0, 1 )
+custom_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+
+[node name="MoneyLabel" type="Label" parent="."]
+layout_mode = 2
+anchors_preset = 8
+offset_left = 450.0
+offset_top = 80.0
+offset_right = -550.0
+offset_bottom = -620.0
+text = "Your Money: 100 Coins"
+
+[node name="ShopItems" type="VBoxContainer" parent="."]
+layout_mode = 2
+anchors_preset = 15
+offset_left = 100.0
+offset_top = 150.0
+offset_right = -100.0
+offset_bottom = -100.0
+size_flags_vertical = 3
+custom_minimum_size = Vector2( 600, 0 )
+
+[node name="Item1" type="Control" parent="ShopItems"]
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2( 600, 80 )
+
+[node name="Item1Name" type="Label" parent="Item1"]
+layout_mode = 2
+anchors_preset = 2
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -420.0
+offset_bottom = -30.0
+text = "Lucky Coin - 20 Coins"
+
+[node name="Item1Desc" type="Label" parent="Item1"]
+layout_mode = 2
+anchors_preset = 6
+offset_left = 20.0
+offset_top = 40.0
+offset_right = -420.0
+offset_bottom = 0.0
+text = "Increases future coin value by 1.5x"
+autowrap_mode = 3
+
+[node name="Item1Buy" type="Button" parent="Item1"]
+layout_mode = 2
+anchors_preset = 10
+offset_left = -110.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = -30.0
+text = "BUY"
+
+[node name="Item2" type="Control" parent="ShopItems"]
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2( 600, 80 )
+
+[node name="Item2Name" type="Label" parent="Item2"]
+layout_mode = 2
+anchors_preset = 2
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -420.0
+offset_bottom = -30.0
+text = "Amulet of Speed - 50 Coins"
+
+[node name="Item2Desc" type="Label" parent="Item2"]
+layout_mode = 2
+anchors_preset = 6
+offset_left = 20.0
+offset_top = 40.0
+offset_right = -420.0
+offset_bottom = 0.0
+text = "Adds 1 extra flip chance per round"
+autowrap_mode = 3
+
+[node name="Item2Buy" type="Button" parent="Item2"]
+layout_mode = 2
+anchors_preset = 10
+offset_left = -110.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = -30.0
+text = "BUY"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+anchors_preset = 8
+offset_left = -120.0
+offset_top = -80.0
+offset_right = 20.0
+offset_bottom = 20.0
+text = "BACK TO MAIN"

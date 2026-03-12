@@ -1,0 +1,109 @@
+[gd_scene load_steps=2 format=3 uid="uid://e9l3m0p2k4c1b"]
+
+[node name="Inventory" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 2
+anchors_preset = 8
+offset_left = 500.0
+offset_top = 30.0
+offset_right = -500.0
+offset_bottom = -670.0
+text = "INVENTORY"
+custom_colors/font_color = Color(1, 0.8, 0.4, 1)
+custom_colors/font_outline_color = Color(0, 0, 0, 1)
+custom_colors/font_shadow_color = Color(0, 0, 0, 1)
+
+[node name="MoneyLabel" type="Label" parent="."]
+layout_mode = 2
+anchors_preset = 8
+offset_left = 450.0
+offset_top = 80.0
+offset_right = -550.0
+offset_bottom = -620.0
+text = "Your Money: 100 Coins"
+
+[node name="InventoryGrid" type="GridContainer" parent="."]
+layout_mode = 2
+anchors_preset = 15
+offset_left = 100.0
+offset_top = 150.0
+offset_right = -100.0
+offset_bottom = -100.0
+size = Vector2( 600, 600 )
+columns = 5
+
+[node name="ItemSlot1" type="Control" parent="InventoryGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2( 100, 100 )
+
+[node name="ItemSlot1Icon" type="Sprite" parent="ItemSlot1"]
+layout_mode = 2
+anchors_preset = 8
+modulate = Color( 1, 0.8, 0.4, 1 )
+texture = new_placeholder_texture()
+
+[node name="ItemSlot1Count" type="Label" parent="ItemSlot1"]
+layout_mode = 2
+anchors_preset = 12
+offset_left = 10.0
+offset_top = -10.0
+offset_right = -10.0
+offset_bottom = 70.0
+text = "x5"
+
+[node name="ItemSlot2" type="Control" parent="InventoryGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2( 100, 100 )
+
+[node name="ItemSlot2Icon" type="Sprite" parent="ItemSlot2"]
+layout_mode = 2
+anchors_preset = 8
+modulate = Color( 1, 0.8, 0.4, 1 )
+texture = new_placeholder_texture()
+
+[node name="ItemSlot2Count" type="Label" parent="ItemSlot2"]
+layout_mode = 2
+anchors_preset = 12
+offset_left = 10.0
+offset_top = -10.0
+offset_right = -10.0
+offset_bottom = 70.0
+text = "x3"
+
+[node name="ItemSlot3" type="Control" parent="InventoryGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2( 100, 100 )
+
+[node name="ItemSlot3Icon" type="Sprite" parent="ItemSlot3"]
+layout_mode = 2
+anchors_preset = 8
+modulate = Color( 1, 0.8, 0.4, 1 )
+texture = new_placeholder_texture()
+
+[node name="ItemSlot3Count" type="Label" parent="ItemSlot3"]
+layout_mode = 2
+anchors_preset = 12
+offset_left = 10.0
+offset_top = -10.0
+offset_right = -10.0
+offset_bottom = 70.0
+text = "x10"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+anchors_preset = 8
+offset_left = -120.0
+offset_top = -80.0
+offset_right = 20.0
+offset_bottom = 20.0
+text = "BACK TO MAIN"
