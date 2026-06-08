@@ -1,14 +1,14 @@
 extends CanvasLayer
 
 # UI元素引用
-onready var coin_count_label = null
-onready var flip_count_label = null
-onready var round_label = null
-onready var power_label = null
-onready var status_bar = null
+@onready var coin_count_label = null
+@onready var flip_count_label = null
+@onready var round_label = null
+@onready var power_label = null
+@onready var status_bar = null
 
 # 游戏状态引用
-onready var game_state = null
+@onready var game_state = null
 
 # 状态条颜色
 const COLOR_SUCCESS = Color.RED

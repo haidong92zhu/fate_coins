@@ -8,10 +8,10 @@ var coins_needed: int = 1
 var current_round: int = 1
 
 # 引用
-onready var main_script = null
-onready var game_state_script = null
-onready var grid_script = null
-onready var battle_system_script = null
+@onready var main_script = null
+@onready var game_state_script = null
+@onready var grid_script = null
+@onready var battle_system_script = null
 
 func _ready():
     print("GameLogic initialized")

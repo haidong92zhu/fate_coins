@@ -45,7 +45,7 @@ func save_game():
         "achievements": [],
         "shop_items_owned": [],
         "play_time": 0,
-        "last_saved": OS.get_datetime_string_from_system()
+        "last_saved": Time.get_datetime_string_from_system()
     }
     
     # 写入文件

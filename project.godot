@@ -12,21 +12,14 @@ config_version=5
 
 config/name="Fate Coins"
 run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArrayNames,HighRes
-config/icon="res://icon.png"
+config/features=PackedStringArray("4.6")
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1600
+window/size/viewport_height=1000
+window/size/resizable=true
 window/stretch/mode="viewport"
-window/size/resizable=false
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true
 
 [dotnet]
 
@@ -36,16 +29,13 @@ project/assembly_name="FateCoins"
 
 project/overwrite_on_import=true
 
-[input]
+[rendering]
 
-ui/default_cancel_action_exit=true
+renderer/rendering_method="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
 
 [ui]
 
-accept/yes_prompt=Are you sure you want to exit?
+accept/yes_prompt="Are you sure you want to exit?"
 mouse/default_cursor_shape="arrow"
-
-[physics]
-
-2d/default_gravity=0,0
-2d/default_linear_velocity=1500,0

@@ -1,14 +1,14 @@
 extends Node
 
 # 游戏状态管理器
-onready var game_state = null
-onready var grid = null
-onready var inventory = null
-onready var shop = null
-onready var battle = null
-onready var ui = null
-onready var save_load = null
-onready var coin_anim = null
+@onready var game_state = null
+@onready var grid = null
+@onready var inventory = null
+@onready var shop = null
+@onready var battle = null
+@onready var ui = null
+@onready var save_load = null
+@onready var coin_anim = null
 
 # 游戏阶段
 const PHASE_SETUP = "setup"

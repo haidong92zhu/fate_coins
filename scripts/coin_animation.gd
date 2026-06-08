@@ -1,7 +1,7 @@
 extends Node
 
 # 金币动画系统
-onready var tween_node = null
+@onready var tween_node = null
 
 func _ready():
     tween_node = create_tween()
@@ -31,7 +31,6 @@ func play_flip_animation(coin: Node2D, duration: float = 0.3):
     tween.parallel().tween_property(coin, "scale", Vector2(1.1, 1.1), duration * 0.5)
     tween.tween_property(coin, "scale", Vector2(1.0, 1.0), duration * 0.5)
     
-    tween.start()
 
 func play_success_animation(coin: Node2D):
     print("Playing success animation")
@@ -40,7 +39,6 @@ func play_success_animation(coin: Node2D):
     var tween = create_tween()
     tween.tween_property(coin, "modulate", Color.GREEN, 0.1)
     tween.tween_property(coin, "modulate", Color.WHITE, 0.2)
-    tween.start()
 
 func play_fail_animation(coin: Node2D):
     print("Playing fail animation")
@@ -49,7 +47,6 @@ func play_fail_animation(coin: Node2D):
     var tween = create_tween()
     tween.tween_property(coin, "modulate", Color.RED, 0.1)
     tween.tween_property(coin, "modulate", Color.WHITE, 0.2)
-    tween.start()
 
 func play_break_animation(coin: Node2D):
     print("Playing break animation")
@@ -57,8 +54,7 @@ func play_break_animation(coin: Node2D):
     # 破碎动画
     var tween = create_tween()
     tween.tween_property(coin, "scale", Vector2(0.1, 0.1), 0.3)
-    tween.tween_callback(self, "hide_coin", [coin])
-    tween.start()
+    tween.tween_callback(Callable(self, "hide_coin").bind(coin))
 
 func hide_coin(coin: Node2D):
     coin.queue_free()
@@ -71,8 +67,7 @@ func play_collect_animation(coin: Node2D, target_pos: Vector2):
     tween.set_parallel(true)
     tween.tween_property(coin, "position", target_pos, 0.5)
     tween.tween_property(coin, "scale", Vector2(0, 0), 0.5)
-    tween.tween_callback(self, "remove_coin", [coin])
-    tween.start()
+    tween.tween_callback(Callable(self, "remove_coin").bind(coin))
 
 func remove_coin(coin: Node2D):
     coin.queue_free()

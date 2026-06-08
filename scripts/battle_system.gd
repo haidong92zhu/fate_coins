@@ -36,7 +36,7 @@ func player_turn():
 func update_attack_powers(player_power: int, enemy_power: int):
     player_attack_power = player_power
     enemy_attack_power = enemy_power
-    print("Player power: ", player_power_power, ", Enemy power: ", enemy_attack_power)
+    print("Player power: ", player_attack_power, ", Enemy power: ", enemy_attack_power)
 
 func game_over():
     print("Game Over!")

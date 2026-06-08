@@ -2,81 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_0n21"]
 
-[node name="Main" type="Control" parent="."]
-layout_mode = 2
+[node name="Main" type="Control"]
+layout_mode = 3
 anchors_preset = 15
-script = ExtResource( "1_0n21" )
-
-[node name="UIContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-anchors_preset = 15
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 20.0
-margin_bottom = 20.0
-
-[node name="TopBar" type="HBoxContainer" parent="UIContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="CoinCountLabel" type="Label" parent="TopBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Coins: 100"
-
-[node name="FlipCountLabel" type="Label" parent="TopBar"]
-layout_mode = 2
-text = "Flips: 3/3"
-
-[node name="RoundLabel" type="Label" parent="TopBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Round: 1"
-
-[node name="PowerLabel" type="Label" parent="TopBar"]
-layout_mode = 2
-text = "Attack Power: 0"
-
-[node name="MainContent" type="HBoxContainer" parent="UIContainer"]
-size_flags_vertical = 3
-
-[node name="GridContainer" type="Control" parent="MainContent"]
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SideBar" type="VBoxContainer" parent="MainContent"]
-size_flags_horizontal = 3
-custom_minimum_size = Vector2( 200, 0 )
-
-[node name="CoinLabel" type="Label" parent="SideBar"]
-text = "Select Coin Type:"
-
-[node name="CoinButtons" type="GridContainer" parent="SideBar"]
-columns = 2
-
-[node name="ButtonNormal" type="Button" parent="CoinButtons"]
-text = "Normal Coin"
-
-[node name="ButtonReverse" type="Button" parent="CoinButtons"]
-text = "Reverse Coin"
-
-[node name="ButtonGlass" type="Button" parent="CoinButtons"]
-text = "Glass Coin"
-
-[node name="ButtonBitcoin" type="Button" parent="CoinButtons"]
-text = "Bitcoin"
-
-[node name="ButtonStock" type="Button" parent="CoinButtons"]
-text = "Stock"
-
-[node name="ButtonLucky" type="Button" parent="CoinButtons"]
-text = "Lucky Coin"
-
-[node name="BottomBar" type="HBoxContainer" parent="UIContainer"]
-size_flags_vertical = 3
-
-[node name="FlipButton" type="Button" parent="BottomBar"]
-text = "FLIP ALL COINS"
-
-[node name="NextRoundButton" type="Button" parent="BottomBar"]
-text = "NEXT ROUND"
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0n21")
