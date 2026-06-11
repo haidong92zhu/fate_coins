@@ -1,116 +1,98 @@
-# Fate Coins - Game Instructions
+# Fate Coins
 
-## Game Overview
-Fate Coins is a strategic coin-flipping game where players collect coins by flipping different types of coins and use coin attack power to defeat enemies.
+Fate Coins is a Godot 4.6 single-player coin-building roguelite. Build a volatile machine on a 4x5 board, choose how hard to wager each round, chain coin flips, survive enemy pressure, and defeat the final boss across a 24-round run.
 
-## System Requirements
-- Windows 7/8/10/11
-- Mac OS X 10.10+
-- Linux (Ubuntu 16.04+)
-- 512MB RAM
-- 100MB disk space
+The current art direction is **Midnight Mint**: dark green-black mechanical panels, copper-gold coins, blue-green energy feedback, red danger accents, independent enemy/Boss icons, and high-frequency relic icons.
 
-## Installation
+## Current Gameplay
 
-### Windows
-1. Download FateCoins-win64.zip
-2. Extract to any folder
-3. Double-click FateCoins.exe to run
+- During intermission, drag coin tiles from your hand onto the board.
+- Start a round, then click placed coins to flip them.
+- Heads, tails, failures, chain triggers, relics, wagers, and enemy effects modify each result.
+- Pay the round quota after enemy pressure resolves; running out of coins or health ends the run.
+- Kill enemies for bounties and prepare for boss rounds.
+- Between rounds, buy coins, relics, consumables, curse trades, or manage your fate bag.
+- The first-run tutorial highlights the current hand, board slots, action button, and clickable coins.
 
-### Mac
-1. Download FateCoins-mac.zip
-2. Extract to Applications folder
-3. Double-click FateCoins.app
-4. If prompted "can't be opened", right-click → Open
+## Productized Systems
 
-### Linux
-1. Download FateCoins-linux.zip
-2. Extract to any folder
-3. Add execute permission to FateCoins.x86_64:
-   ```bash
-   chmod +x FateCoins.x86_64
-   ```
-4. Run the game:
-   ```bash
-   ./FateCoins.x86_64
-   ```
+- Main menu with new game, continue, save, delete save, difficulty, settings, fullscreen, and quit.
+- Four starter bags: Balanced, Chain, Gambler, Blood.
+- Four wager modes: Safe, Standard, Greedy, All In.
+- Enemy waves, boss rounds, relic shop, consumables, curse trades, events, and director pressure.
+- Procedural Midnight Mint art for coins, tiles, enemies, relics, and UI category icons.
+- Automated first-run smoke test.
+- Balance simulator across difficulties and starter bags.
 
-## How to Play
+## Run Locally
 
-### Main Menu
-- **New Game**: Start a new game
-- **Continue**: Continue from previous save
-- **Settings**: Adjust game options
+Open `project.godot` in Godot 4.6, or run:
 
-### Game Screen
-- **Place Coins**: Select coin type from right sidebar, drag to 4x5 grid in center
-- **Flip Coins**: Click coins in grid to flip them
-- **Check Status**: Top status bar shows flip attempts and results
-  - Red = Success (hit)
-  - Green = Fail (miss)
-  - Gray = Not flipped yet
-- **Collect Coins**: Earn coins after successful flips
-- **Buy Equipment**: Purchase new coin types and items in shop
+```bash
+/Applications/Godot.app/Contents/MacOS/Godot --path /Users/admin/Documents/hd/game/fate_coins
+```
 
-### Controls
-- **Mouse Left**: Click, select, drag
-- **ESC**: Return to previous menu
+Startup check:
 
-## Game Rules
+```bash
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/admin/Documents/hd/game/fate_coins --quit-after 1
+```
 
-### Basic Rules
-1. 3 manual flips per round
-2. Each coin has attack power
-3. Total attack power deals damage to enemies
-4. Collect enough coins to proceed to next round
-5. Coins needed grow by 30% each round
+First-run flow test:
 
-### Coin Types
-- **Normal Coin**: Basic coins, no special effects
-- **Reverse Coin**: Double chance, requires fund doubling
-- **Glass Coin**: 20% break chance,正面 gains 3
-- **Bitcoin**: No flip limit, value grows 20%, 50% drop chance
-- **Stock Coin**: +10% or -10% on success, -10% on fail
-- **Lucky Coin**: Increases future coin amount
-- **Ming Coin**: Reduces HP, greatly reduces final coin count
-- **Vampire Coin**: Increases max HP on successful flip
-- **Angel Coin**: Restores HP, clears all Demon marks, generates 5 coins per mark, adds Angel mark
-- **Demon Coin**: Deducts HP, clears Angel marks, generates 1 coin per mark, adds Demon mark
-- **Spirit Stone**: Triggers an extra manual flip, consumes internal spirit power
+```bash
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/admin/Documents/hd/game/fate_coins --script tools/first_run_smoke_test.gd
+```
 
-### Battle System
-- Attack mode: Similar to Pinball game
-- Enemies come from afar, move forward once per turn
-- Attack after 5 turns when reaching cat
-- Ranged rats can attack remotely
+Balance simulation:
 
-## Saving
-- Game auto-saves
-- Manual save supported
-- Multiple save slots
+```bash
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/admin/Documents/hd/game/fate_coins --script tools/balance_simulator.gd
+```
 
-## Troubleshooting
+Regenerate procedural art:
 
-**Q: Game won't start**
-A: Ensure system meets minimum requirements and re-download.
+```bash
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/admin/Documents/hd/game/fate_coins --script tools/generate_midnight_assets.gd
+```
 
-**Q: Game lags**
-A: Close other resource-heavy programs or lower graphics settings.
+## Project Structure
 
-**Q: Save files lost**
-A: Ensure game has write permissions and check save directory.
+```text
+audio/                         Sound effects
+scenes/main.tscn               Current main scene
+scripts/main.gd                Main gameplay, UI, save/settings, tutorial, audio
+scripts/game_state.gd          Runtime state object
+textures/coins/                Coin art
+textures/tiles/                Board tile art
+textures/enemies/              Enemy and boss icons
+textures/relics/               Relic icons
+textures/ui/                   UI category icons
+tools/first_run_smoke_test.gd  First-run automation
+tools/balance_simulator.gd     Heuristic balance simulator
+tools/generate_midnight_assets.gd Procedural art generator
+```
 
-## Support
-For issues, contact:
-- Email: support@fatecoins.com
-- Discord: https://discord.gg/fatecoins
-- Reddit: https://reddit.com/r/FateCoins
+Some early prototype scripts and scenes remain in the repository. The current playable path is `scenes/main.tscn` plus `scripts/main.gd`.
 
-## Version Info
-- Game Version: v1.0
-- Build Date: 2026-03-12
-- Engine: Godot Engine 4.x
+## Steam Readiness
 
----
+See `STEAM_READINESS_AUDIT_CN.md` for the active release-readiness tracker.
 
-Enjoy the game! 🪙
+Improved since the prototype pass:
+
+- Replaced placeholder visuals with a unified Midnight Mint direction.
+- Added a main menu, settings, save/delete save, and quit flow.
+- Added first-run tutorial highlights and automated first-run verification.
+- Added independent enemy/Boss icons and 12 high-frequency relic icons.
+- Added balance simulation reporting.
+- Fixed audio leak warnings in headless first-run testing.
+
+Still required for a real Steam release:
+
+- Human first-run observation to verify that players understand dragging, starting, clicking, and settlement within the first 30 seconds.
+- More balance tuning for stable 20-minute repeatable runs.
+- Remaining relic, special coin, consumable, curse, and event icon coverage.
+- Export presets, desktop app icon, version metadata, license notes, and platform launch/save tests.
+- Real screenshots, capsule art, store copy, and system requirements.
+

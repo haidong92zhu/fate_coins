@@ -1,120 +1,97 @@
-# Fate Coins - 游戏使用说明
+# Fate Coins 命运之币
 
-## 游戏简介
-命运之币是一款策略性抛硬币游戏，玩家通过抛掷不同类型的硬币来收集金币，并利用硬币的攻击力来对抗敌人。
+Fate Coins 是一款 Godot 4.6 制作的单机硬币构筑 roguelite。玩家在 4x5 棋盘上搭建一台不稳定的硬币机器，在每回合选择保守、标准、贪婪或梭哈下注，用金币收益、连锁触发、遗物和敌人赏金撑过 24 回合挑战。
 
-## 系统要求
-- Windows 7/8/10/11
-- Mac OS X 10.10+
-- Linux (Ubuntu 16.04+)
-- 512MB RAM
-- 100MB 硬盘空间
+当前美术方向是 **午夜铸币厂**：深墨绿机械面板、铜金硬币、青蓝能量反馈、红色危险提示、独立敌人/Boss 图标和高频遗物图标。
 
-## 安装说明
+## 当前玩法
 
-### Windows
-1. 下载 FateCoins-win64.zip
-2. 解压到任意文件夹
-3. 双击运行 FateCoins.exe
-4. 等待游戏启动
+- 准备阶段从手牌拖拽硬币到棋盘。
+- 开始回合后点击棋盘硬币，触发正反面、失败、连锁、伤害和收益。
+- 每回合需要支付收取额度；金币不足或生命归零会失败。
+- 击败敌人获得赏金，Boss 回合会检验当前构筑。
+- 回合间可以购买硬币、遗物、一次性道具、诅咒交易，或管理命运袋。
+- 首局教程会高亮当前应操作的手牌、空格、按钮和可点击硬币。
 
-### Mac
-1. 下载 FateCoins-mac.zip
-2. 解压到 Applications 文件夹
-3. 双击 FateCoins.app
-4. 如果提示"无法打开"，右键点击 → 打开
+## 已具备的正式化内容
 
-### Linux
-1. 下载 FateCoins-linux.zip
-2. 解压到任意文件夹
-3. 给 FateCoins.x86_64 添加执行权限：
-   ```bash
-   chmod +x FateCoins.x86_64
-   ```
-4. 运行游戏：
-   ```bash
-   ./FateCoins.x86_64
-   ```
+- 主菜单：新游戏、继续、保存、删除存档、难度、设置、全屏、退出。
+- 四种初始袋：稳健、连锁、赌博、鲜血。
+- 四种下注：保守、标准、贪婪、梭哈。
+- 敌人波次、Boss、遗物商店、一次性道具、诅咒交易、回合事件和导演压力。
+- 程序化生成的午夜铸币厂硬币、方块、敌人、遗物和 UI 图标。
+- 首局流程自动化 smoke test。
+- 多难度/多初始袋平衡模拟器。
 
-## 游戏操作
+## 本地运行
 
-### 主界面
-- **新游戏**：开始新的游戏
-- **继续**：继续之前的存档
-- **设置**：调整游戏选项
+用 Godot 4.6 打开 `project.godot`，或运行：
 
-### 游戏界面
-- **放置硬币**：从右侧侧边栏选择硬币类型，拖拽到中间的4x5网格
-- **抛掷硬币**：点击网格中的硬币进行抛掷
-- **查看状态**：上方的状态条显示抛掷次数和结果
-  - 红色 = 成功（命中）
-  - 绿色 = 失败（未命中）
-  - 灰色 = 未抛掷
-- **收集金币**：抛掷成功后获得金币
-- **购买装备**：在商店购买新的硬币类型和道具
+```bash
+/Applications/Godot.app/Contents/MacOS/Godot --path /Users/admin/Documents/hd/game/fate_coins
+```
 
-### 控制方式
-- **鼠标左键**：点击、选择、拖拽
-- **ESC键**：返回上一级菜单
+启动检查：
 
-## 游戏规则
+```bash
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/admin/Documents/hd/game/fate_coins --quit-after 1
+```
 
-### 基础规则
-1. 每回合有3次手动抛掷机会
-2. 每个硬币有不同的攻击力
-3. 总攻击力汇总后攻击敌人
-4. 收集足够的金币可以进入下一回合
-5. 每回合所需金币数增长30%
+首局流程测试：
 
-### 硬币类型
-- **普通硬币**：基础金币，无特殊效果
-- **反面硬币**：翻倍机会，需要资金翻倍
-- **玻璃硬币**：20%破碎，正面获得3金币
-- **比特币**：无抛掷次数上限，战斗中每次抛掷价值增长20%
-- **股票**：每次抛掷成功涨10%或跌10%，失败跌10%
-- **幸运硬币**：增加后续硬币金额
-- **冥币**：减少血量，大幅减少最终金钱数
-- **吸血硬币**：抛掷成功后增加最大生命值
-- **天使硬币**：恢复生命，清除所有恶魔标记
-- **恶魔硬币**：扣除生命，清除天使标记，增加恶魔标记
-- **灵石**：触发时获得一次手动抛掷次数
+```bash
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/admin/Documents/hd/game/fate_coins --script tools/first_run_smoke_test.gd
+```
 
-### 战斗系统
-- 类似弹球小游戏的攻击模式
-- 敌人从远处来，每回合向前移动一次
-- 四五回合后走到猫面前攻击
-- 远程鼠可以远程攻击
+平衡模拟：
 
-### 存档系统
-- 游戏自动保存
-- 支持手动存档
-- 支持多存档槽
+```bash
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/admin/Documents/hd/game/fate_coins --script tools/balance_simulator.gd
+```
 
-## 常见问题
+重新生成程序化美术：
 
-**Q: 游戏无法启动**
-A: 请确保系统满足最低要求，并重新下载游戏。
+```bash
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/admin/Documents/hd/game/fate_coins --script tools/generate_midnight_assets.gd
+```
 
-**Q: 游戏卡顿**
-A: 请关闭其他占用资源的程序，或降低游戏画质。
+## 主要目录
 
-**Q: 存档丢失**
-A: 请确保游戏有写入权限，并检查存档目录。
+```text
+audio/                         音效
+scenes/main.tscn               当前主场景
+scripts/main.gd                主玩法、UI、存档、设置、教程、音频
+scripts/game_state.gd          运行状态对象
+textures/coins/                硬币图
+textures/tiles/                棋盘方块图
+textures/enemies/              敌人和 Boss 图标
+textures/relics/               遗物图标
+textures/ui/                   UI 分类图标
+tools/first_run_smoke_test.gd  首局流程测试
+tools/balance_simulator.gd     启发式平衡模拟器
+tools/generate_midnight_assets.gd 程序化美术生成器
+```
 
-**Q: 无法购买装备**
-A: 请确保有足够的金币，并检查商店是否解锁了该装备。
+仓库里仍保留部分早期原型脚本和场景；当前可玩路径以 `scenes/main.tscn` 和 `scripts/main.gd` 为准。
 
-## 联系支持
-如果遇到问题，请联系：
-- Email: support@fatecoins.com
-- Discord: https://discord.gg/fatecoins
-- Reddit: https://reddit.com/r/FateCoins
+## Steam 化状态
 
-## 版本信息
-- 游戏版本：v1.0
-- 构建日期：2026-03-12
-- 引擎：Godot Engine 4.x
+详细记录见 `STEAM_READINESS_AUDIT_CN.md`。
 
----
+已经推进：
 
-祝游戏愉快！🪙
+- 从占位风格切换到统一的午夜铸币厂视觉方向。
+- 完成主菜单、设置、保存/删除存档和退出流程。
+- 完成首局教程高亮和自动化首局路径验证。
+- 接入敌人/Boss 独立图标和 12 个高频遗物图标。
+- 加入平衡模拟报告。
+- 修复 headless 首局测试中的音频泄漏警告。
+
+仍未达到真正 Steam 上架标准：
+
+- 需要真人首局观察，验证 30 秒内是否理解拖拽、开局、点击与结算。
+- 普通难度仍需继续调平衡，形成 20 分钟左右的稳定可重复游玩曲线。
+- 需要补齐剩余遗物、特殊硬币、道具、诅咒和事件图标。
+- 需要导出预设、桌面图标、版本号、许可证说明和三平台启动/存档测试。
+- 需要真实游戏截图、胶囊图、商店文案和系统需求。
+
