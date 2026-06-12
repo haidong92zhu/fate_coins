@@ -1,0 +1,5 @@
+res://scripts/main.gd
+res://tools/generate_midnight_assets.gd
+res://tools/balance_simulator.gd
+res://tools/asset_coverage_check.gd
+res://tools/first_run_smoke_test.gd

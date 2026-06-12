@@ -219,7 +219,7 @@ func _resolve_sim_flip(state: Dictionary, tile: Dictionary, heads: bool, event: 
 		"vampire":
 			if heads:
 				result["damage"] = base_damage + 2 + level
-				result["heal"] = 1
+				result["heal"] = 2 + int(level >= 3)
 			else:
 				result["damage"] = base_damage + level
 				result["self_damage"] = 1

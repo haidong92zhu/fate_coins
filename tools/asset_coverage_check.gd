@@ -11,6 +11,8 @@ func _init() -> void:
 	_check_assets("consumable", MainScript.CONSUMABLES.keys(), "res://textures/consumables", missing)
 	_check_assets("curse", MainScript.CURSE_DEALS.keys(), "res://textures/curses", missing)
 	_check_assets("event", _event_icon_types(), "res://textures/events", missing)
+	_check_audio_assets("sfx", MainScript.SFX_PATHS.values(), missing)
+	_check_audio_assets("music", MainScript.MUSIC_PATHS.values(), missing)
 	if missing.is_empty():
 		print("Asset coverage check passed")
 		quit(0)
@@ -46,6 +48,18 @@ func _check_tile_assets(missing: Array[String]) -> void:
 			missing.append("Missing tile import metadata: %s" % import_path)
 		if not ResourceLoader.exists(path):
 			missing.append("ResourceLoader cannot resolve tile icon: %s" % path)
+
+
+func _check_audio_assets(kind: String, paths: Array, missing: Array[String]) -> void:
+	for raw_path in paths:
+		var path := String(raw_path)
+		var import_path := "%s.import" % path
+		if not FileAccess.file_exists(path):
+			missing.append("Missing %s audio: %s" % [kind, path])
+		if not FileAccess.file_exists(import_path):
+			missing.append("Missing %s import metadata: %s" % [kind, import_path])
+		if not ResourceLoader.exists(path):
+			missing.append("ResourceLoader cannot resolve %s audio: %s" % [kind, path])
 
 
 func _event_icon_types() -> Array[String]:
